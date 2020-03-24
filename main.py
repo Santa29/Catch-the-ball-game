@@ -21,7 +21,8 @@ def click(event):
     if math.pow((math.pow(first_target.get_x() - event.x, 2) + math.pow(first_target.get_y() - event.y, 2)), 0.5)\
             <= first_target.get_r():
         player.score += 1
-    return player.score
+    first_target.death()
+    first_target.new_ball()
 
 
 first_target = Target.TargetBall()

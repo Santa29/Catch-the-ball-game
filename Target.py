@@ -26,17 +26,18 @@ class TargetBall:
 
     def move(self):
         """Target move from point x,y to x + delta_x, y + delta_y. Border check included"""
-        if self.x + self.delta_x > 800:
-            self.delta_x = -1 * self.delta_x
-        if self.x - self.delta_x < 0:
-            self.delta_x = -1 * self.delta_x
-        if self.y + self.delta_y > 600:
-            self.delta_x = -1 * self.delta_x
-        if self.y + self.delta_y < 0:
-            self.delta_x = -1 * self.delta_x
-        canv.move(self.ball, self.delta_x, self.delta_y)
-        self.x += self.delta_x
-        self.y += self.delta_y
+        while True:
+            if self.x + self.delta_x > 800:
+                self.delta_x = -1 * self.delta_x
+            if self.x - self.delta_x < 0:
+                self.delta_x = -1 * self.delta_x
+            if self.y + self.delta_y > 600:
+                self.delta_x = -1 * self.delta_x
+            if self.y + self.delta_y < 0:
+                self.delta_x = -1 * self.delta_x
+            canv.move(self.ball, self.delta_x, self.delta_y)
+            self.x += self.delta_x
+            self.y += self.delta_y
 
     def death(self):
         """Delete the ball"""
