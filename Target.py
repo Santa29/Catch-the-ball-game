@@ -11,16 +11,18 @@ colors = ['red', 'orange', 'yellow', 'green', 'blue']
 
 class TargetBall:
     """The target class. Target can move, take death and rebirth. Each iteration have random values."""
+
     def __init__(self):
         """Target initialization"""
         self.x = rnd(100, 700)
         self.y = rnd(100, 500)
-        self.r = rnd(15, 80)
+        self.r = rnd(10, 80)
         self.delta_x = rnd(1, 15)
         self.delta_y = rnd(1, 15)
         self.color = choice(colors)
         self.points_value = 100 // self.r
-        self.ball = canv.create_oval(self.x + self.r, self.y + self.r, self.x - self.r, self.y - self.r, self.color)
+        self.ball = canv.create_oval(self.x + self.r, self.y - self.r, self.x - self.r, self.y + self.r,
+                                     fill=self.color, width=0)
 
     def move(self):
         """Target move from point x,y to x + delta_x, y + delta_y. Border check included"""
@@ -49,7 +51,8 @@ class TargetBall:
         self.delta_y = rnd(1, 15)
         self.color = choice(colors)
         self.points_value = 100 // self.r
-        self.ball = canv.create_oval(self.x + self.r, self.y + self.r, self.x - self.r, self.y - self.r, self.color)
+        self.ball = canv.create_oval(self.x + self.r, self.y - self.r, self.x - self.r, self.y + self.r,
+                                     fill=self.color, width=0)
 
     @property
     def get_x(self):
