@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Canvas, Tk, BOTH
 from random import randrange as rnd, choice
 
 root = Tk()
@@ -9,9 +9,10 @@ canv.pack(fill=BOTH, expand=1)
 colors = ['red', 'orange', 'yellow', 'green', 'blue']
 
 
-class Target:
+class TargetBall:
     """The target class. Target can move, take death and rebirth. Each iteration have random values."""
     def __init__(self):
+        """Target initialization"""
         self.x = rnd(100, 700)
         self.y = rnd(100, 500)
         self.r = rnd(15, 80)
@@ -22,6 +23,7 @@ class Target:
         self.ball = canv.create_oval(self.x + self.r, self.y + self.r, self.x - self.r, self.y - self.r, self.color)
 
     def move(self):
+        """Target move from point x,y to x + delta_x, y + delta_y. Border check included"""
         if self.x + self.delta_x > 800:
             self.delta_x = -1 * self.delta_x
         if self.x - self.delta_x < 0:
@@ -35,9 +37,11 @@ class Target:
         self.y += self.delta_y
 
     def death(self):
+        """Delete the ball"""
         canv.delete(self.ball)
 
     def new_ball(self):
+        """Create new ball in random location"""
         self.x = rnd(100, 700)
         self.y = rnd(100, 500)
         self.r = rnd(15, 80)

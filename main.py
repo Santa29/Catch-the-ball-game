@@ -1,6 +1,5 @@
 from tkinter import *
 import math
-import time
 import Target
 
 root = Tk()
@@ -25,7 +24,7 @@ def click(event):
     return player.score
 
 
-first_target = Target
+first_target = Target.TargetBall()
 player = VictoryPoints()
 player.name = input()
 player.score = 0
