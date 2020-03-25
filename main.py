@@ -1,13 +1,5 @@
-from tkinter import *
 import math
 import Target
-
-root = Tk()
-root.geometry('800x600')
-
-canv = Canvas(root, bg='white')
-canv.pack(fill=BOTH, expand=1)
-colors = ['red', 'orange', 'yellow', 'green', 'blue']
 
 
 class VictoryPoints:
@@ -29,7 +21,7 @@ first_target = Target.TargetBall()
 player = VictoryPoints()
 player.name = input()
 player.score = 0
-first_target_catch = True
-canv.bind('<Button-1>', click)
-mainloop()
+Target.canv.bind('<Button-1>', click)
+first_target.move()
+Target.root.mainloop()
 # print(player.name, player.score)
