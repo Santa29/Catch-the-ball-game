@@ -1,4 +1,5 @@
 from random import randrange as rnd, choice
+import math
 
 colors = ['red', 'orange', 'yellow', 'green', 'blue']
 
@@ -19,13 +20,13 @@ class TargetBall:
     def move_check(self):
         """Check the border interceptions and calculate the new x, y coordinates to draw a new position of target"""
         if self.x + self.delta_x > 800:
-            self.delta_x = -1 * self.delta_x
-        if self.x - self.delta_x < 0:
-            self.delta_x = -1 * self.delta_x
+            self.delta_x = rnd(-15, 0, 1)
+        elif self.x - self.delta_x < 0:
+            self.delta_x = rnd(1, 16, 1)
         if self.y + self.delta_y > 600:
-            self.delta_y = -1 * self.delta_x
-        if self.y - self.delta_y < 0:
-            self.delta_y = -1 * self.delta_x
+            self.delta_y = rnd(-15, 0, 1)
+        elif self.y - self.delta_y < 0:
+            self.delta_y = rnd(1, 16, 1)
         self.x += self.delta_x
         self.y += self.delta_y
 

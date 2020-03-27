@@ -5,7 +5,7 @@ import time
 
 
 root = Tk()
-canv = Canvas(root, width=1800, height=1600, bg="white")
+canv = Canvas(root, width=800, height=600, bg="white")
 canv.pack()
 
 
@@ -24,10 +24,11 @@ def click(event):
 
 
 def move(ball):
-    finish = time.time() + 5
+    finish = time.time() + 25
     while time.time() < finish:
         first_target.move_check()
-        canv.after(10, canv.move(ball, first_target.get_delta_x, first_target.get_delta_y))
+        print(first_target.delta_x, first_target.delta_y, first_target.get_x, first_target.get_y)
+        canv.after(50, canv.move(ball, first_target.get_delta_x, first_target.get_delta_y))
         canv.update()
 
 
