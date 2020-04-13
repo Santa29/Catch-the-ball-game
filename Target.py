@@ -1,5 +1,4 @@
 from random import randrange as rnd, choice
-import math
 
 colors = ['red', 'orange', 'yellow', 'green', 'blue']
 
