@@ -32,8 +32,6 @@ class TargetBall:
 
     def new_ball(self):
         """Create new ball in random location"""
-        self.x = rnd(100, 700)
-        self.y = rnd(100, 500)
         self.r = rnd(15, 80)
         self.delta_x = rnd(1, 15)
         self.delta_y = rnd(1, 15)
